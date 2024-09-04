@@ -2,8 +2,20 @@ const express = require('express');
 
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send('Response from Express');
-});
+const getRootHandler = (req, res) => {
+  res.send('Response From Express');
+};
+
+const getCommentsHandler = (req, res) => {
+  res.send('Get comments route');
+};
+
+const postCommentsHandler = (req, res) => {
+  res.send('Post comments route');
+};
+
+app.get('/', getRootHandler);
+app.get('/comments', getCommentsHandler);
+app.post('/comments', postCommentsHandler);
 
 app.listen(5000, () => console.log('Server was started on port 5000'));
